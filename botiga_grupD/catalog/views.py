@@ -22,3 +22,14 @@ def afegir_producte(request, producte_id=None):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.data, status=400)
+
+@api_view(['PUT'])
+#Funcio per actualitzar productes
+def actualitzar_producte(request, producte_id=None):
+    if request.method == 'PUT':
+        producte = Producte.objects.get(id=producte_id)
+        serializer = ProducteSerializer(producte, data=request.data, context={'request': request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)

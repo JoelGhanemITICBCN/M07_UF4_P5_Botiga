@@ -23,4 +23,6 @@ urlpatterns = [
     path('hello/', views.hello_world, name='hello_world'),
     #Paths per poder fer el crud mitjancant post dels productes i el cataleg
     path('Aproductes/', views.afegir_producte, name='Aproducte'),
+    #Aquest path conte l id del producte per saber quin estem canviant
+    path('Mproductes/<int:producte_id>/', views.actualitzar_producte, name='Mproducte'),
 ]
