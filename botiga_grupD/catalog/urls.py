@@ -27,4 +27,8 @@ urlpatterns = [
     path('Mproductes/<int:producte_id>/', views.actualitzar_producte, name='Mproducte'),
     #Aquest path conte l id del producte per saber quin estem Eliminant
     path('Eproductes/<int:producte_id>/', views.eliminar_producte, name='Eproducte'),
+    #Aquest path conte l id del producte per especificar quin mostrem
+    path('Gproductes/<int:producte_id>/', views.mostrar_producte, name='Gproducte'),
+    #Aquest path no conte l'id aixi que es mostren tots
+    path('Gproductes/',views.mostrar_producte, name='Gproducte'),
 ]

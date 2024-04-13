@@ -13,10 +13,22 @@ def hello_world(request):
         return Response({"message": "DELETE request received"})
 
 #Defineix com s-han de mostrar les views de la api a django
+@api_view(['GET'])
+def mostrar_producte(request, producte_id=None):
+    if producte_id:
+        try:
+            producte = Producte.objects.get(id=producte_id)
+            serializer = ProducteSerializer(producte)
+            return Response(serializer.data, status=200)
+        except Producte.DoesNotExist:
+            return Response({'error': 'No s ha trobat el producte que busques'}, status=404)
+    else:
+        productes = Producte.objects.all()
+        serializer = ProducteSerializer(productes, many=True)
+        return Response(serializer.data, status=200)
 @api_view(['POST'])
 #Funcio per afegir productes
 def afegir_producte(request, producte_id=None):
-    if request.method == 'POST':
         serializer = ProducteSerializer(data=request.data,context={'request':request})
         if serializer.is_valid():
             serializer.save()
@@ -26,7 +38,6 @@ def afegir_producte(request, producte_id=None):
 @api_view(['PUT'])
 #Funcio per actualitzar productes
 def actualitzar_producte(request, producte_id=None):
-    if request.method == 'PUT':
         producte = Producte.objects.get(id=producte_id)
         serializer = ProducteSerializer(producte, data=request.data, context={'request': request})
         if serializer.is_valid():
@@ -39,7 +50,7 @@ def eliminar_producte(request, producte_id=None):
     try:
         producte = Producte.objects.get(id=producte_id)
     except Producte.DoesNotExist:
-        return Response({'error': 'Producte not found'}, status=404)
+        return Response({'error': 'No s ha trobat el producte que busques'}, status=404)
 
     # Serializar el producto antes de eliminarlo
     serializer = ProducteSerializer(producte)
