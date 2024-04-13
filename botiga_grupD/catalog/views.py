@@ -33,3 +33,19 @@ def actualitzar_producte(request, producte_id=None):
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=400)
+
+@api_view(['DELETE'])
+def eliminar_producte(request, producte_id=None):
+    try:
+        producte = Producte.objects.get(id=producte_id)
+    except Producte.DoesNotExist:
+        return Response({'error': 'Producte not found'}, status=404)
+
+    # Serializar el producto antes de eliminarlo
+    serializer = ProducteSerializer(producte)
+
+    # Eliminar el producto
+    producte.delete()
+
+    # Devolver los datos serializados del producto eliminado
+    return Response(serializer.data, status=200)

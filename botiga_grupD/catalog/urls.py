@@ -25,4 +25,6 @@ urlpatterns = [
     path('Aproductes/', views.afegir_producte, name='Aproducte'),
     #Aquest path conte l id del producte per saber quin estem canviant
     path('Mproductes/<int:producte_id>/', views.actualitzar_producte, name='Mproducte'),
+    #Aquest path conte l id del producte per saber quin estem Eliminant
+    path('Eproductes/<int:producte_id>/', views.eliminar_producte, name='Eproducte'),
 ]
