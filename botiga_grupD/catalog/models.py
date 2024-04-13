@@ -1,5 +1,6 @@
 from django.db import models
 
+#Models de producte i cataleg relacionats amb FK per id_producte
 class Producte(models.Model):
     nom = models.CharField(max_length=255)
     preu = models.FloatField()
