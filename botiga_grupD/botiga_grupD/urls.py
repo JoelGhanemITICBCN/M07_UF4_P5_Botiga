@@ -19,5 +19,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #Path per que django derivi les peticions a la app catalog
     path('catalog/', include("catalog.urls")),
 ]
