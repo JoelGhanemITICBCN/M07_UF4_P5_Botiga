@@ -21,4 +21,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.hello_world, name='hello_world'),
+    #Paths per poder fer el crud mitjancant post dels productes i el cataleg
+    path('Aproductes/', views.afegir_producte, name='Aproducte'),
 ]
