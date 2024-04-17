@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #Path per que django derivi les peticions a la app catalog
     path('catalog/', include("catalog.urls")),
+    #Path per que django derivi les peticions a la app pagaments
+    #path('pagaments/', include("pagaments.urls")),
 ]

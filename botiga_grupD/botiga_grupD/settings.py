@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     #Afegits rest framework i catalog per que django els utilitzi
     'rest_framework',
     'catalog',
+    #Afegit pagaments
+    #'pagaments',
 ]
 
 MIDDLEWARE = [
@@ -75,14 +77,16 @@ WSGI_APPLICATION = 'botiga_grupD.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "ITIC_DB_Botiga",
+        "USER": "ITIC",
+        "PASSWORD": "ITIC",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
