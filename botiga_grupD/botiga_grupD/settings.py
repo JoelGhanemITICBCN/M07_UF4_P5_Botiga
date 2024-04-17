@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Afegits rest framework i catalog per que django els utilitzi
+    'rest_framework',
+    'catalog',
 ]
 
 MIDDLEWARE = [
