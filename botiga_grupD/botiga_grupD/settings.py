@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'catalog',
     #Afegit pagaments
-    #'pagaments',
+    'pagaments',
 ]
 
 MIDDLEWARE = [
