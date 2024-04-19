@@ -14,14 +14,3 @@ class Cataleg(models.Model):
     nom = models.CharField(max_length=255)
     categoria = models.CharField(max_length=255)
 
-class Targeta(models.Model):
-    num_targeta = models.CharField(max_length=255)
-    caducitat = models.DateField()
-    codi_seguretat = models.IntegerField()
-
-class Usuari(models.Model):
-   nom = models.CharField(max_length=255)
-   cognom = models.CharField(max_length=255)
-   validat = models.BooleanField()
-   id_targeta = models.ForeignKey(Targeta, on_delete=models.CASCADE)
-   passwd = models.CharField(max_length=255)
