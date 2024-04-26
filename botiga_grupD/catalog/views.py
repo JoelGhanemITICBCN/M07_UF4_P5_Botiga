@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Producte, Cataleg
+from .models import Producte
 from .serializers import *
 
 @api_view(['GET', 'POST', 'DELETE'])
@@ -13,50 +13,6 @@ def hello_world(request):
         return Response({"message": "DELETE request received"})
 
 #Defineix com s-han de mostrar les views de la api a django
-
-#Views de cataleg
-@api_view(['GET'])
-def mostrar_cataleg(request, cataleg_id=None):
-    if cataleg_id:
-        try:
-            cataleg = Cataleg.objects.get(id=cataleg_id)
-            serializer = CatalegSerializer(cataleg)
-            return Response(serializer.data, status=200)
-        except Cataleg.DoesNotExist:
-            return Response({'error': 'No s ha trobat el cataleg que busques'}, status=404)
-    else:
-        catalegs = Cataleg.objects.all()
-        serializer = CatalegSerializer(catalegs, many=True)
-        return Response(serializer.data, status=200)
-
-@api_view(['POST'])
-def afegir_cataleg(request, cataleg_id=None):
-    serializer = CatalegSerializer(data=request.data, context={'request': request})
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=201)
-    return Response(serializer.errors, status=400)
-
-@api_view(['PUT'])
-def actualitzar_cataleg(request, cataleg_id=None):
-    cataleg = Cataleg.objects.get(id=cataleg_id)
-    serializer = CatalegSerializer(cataleg, data=request.data, context={'request': request})
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=200)
-    return Response(serializer.errors, status=400)
-
-@api_view(['DELETE'])
-def eliminar_cataleg(request, cataleg_id=None):
-    try:
-        cataleg = Cataleg.objects.get(id=cataleg_id)
-    except Cataleg.DoesNotExist:
-        return Response({'error': 'No s ha trobat el cataleg que busques'}, status=404)
-
-    serializer = CatalegSerializer(cataleg)
-    cataleg.delete()
-
-    return Response(serializer.data, status=200)
 
 #Views de productes
 @api_view(['GET'])
