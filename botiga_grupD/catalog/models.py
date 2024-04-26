@@ -9,7 +9,13 @@ class Producte(models.Model):
     pes = models.FloatField()
     subcategoria = models.CharField(max_length=255)
 
-class Cataleg(models.Model):
-    id_producte = models.ForeignKey(Producte, on_delete=models.CASCADE)
-    nom = models.CharField(max_length=255)
-    categoria = models.CharField(max_length=255)
+"""
+{
+    "nom": "Producto 1",
+    "preu": 99.99,
+    "stock": 100,
+    "descripcio": "Descripción del producto",
+    "pes": 1.5,
+    "subcategoria": "Subcategoría del producto"
+}
+"""
