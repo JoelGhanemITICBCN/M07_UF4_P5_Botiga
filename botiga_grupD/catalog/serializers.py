@@ -7,8 +7,3 @@ class ProducteSerializer(serializers.ModelSerializer):
         model = Producte
         fields = '__all__'
 
-
-class CatalegSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cataleg
-        fields = '__all__'
