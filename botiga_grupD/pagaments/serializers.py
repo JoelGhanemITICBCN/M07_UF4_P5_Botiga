@@ -3,12 +3,12 @@ from .models import *
 class FakeCarretoSerializer(serializers.ModelSerializer):
     class Meta:
         model = FakeCarreto
-        fields = '__all__'
+        fields = ('pagat',)
 
 class MostraFakeSerializer(serializers.ModelSerializer):
     class Meta:
         model = FakeCarreto
-        fields = ('pagat',)
+        fields = '__all__'
 class UsuariSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuari
