@@ -19,18 +19,24 @@ class FakeCarreto(models.Model):
 
 '''
 {
-    "Usuari": {
+    "Usuari":
+    
+    {
         "nom": "Nombre del usuario",
         "password": "Contraseña del usuario",
         "tarjeta": "Número de tarjeta del usuario"
     },
-    "FakeCarreto": {
+    "FakeCarreto": 
+    
+    {
         "producte": "Nombre del producto",
         "preu": 99,
         "quantitat": 1,
         "usuari": 1,
         "pagat": false
     }
+    
+    
     {
         "pagat": false
     }
