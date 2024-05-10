@@ -24,3 +24,5 @@
 ![Mostra 1 ](botiga_grupD/img/GP1.png)
 ### Mostrar productes
 ![Mostra tots ](botiga_grupD/img/GP2.png)
+
+### [Video de la execucio](https://drive.google.com/file/d/103t_F9U3H3CzHbSCR4G3jBYqP6Xj31AP/view?usp=drive_link)
